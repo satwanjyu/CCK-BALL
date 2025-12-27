@@ -26,6 +26,9 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&mt {
+    flavor = "balanced";
+}
 &lt {
     flavor = "balanced";
 };
@@ -46,10 +49,10 @@
 
         base {
             bindings = <
-&kp TAB    &kp Q     &kp W      &kp F        &kp P          &kp B         &kp J        &kp L         &kp U       &kp Y     &kp SEMI   &kp BSPC
-&kp LCTRL  &kp A     &kp R      &kp S        &kp T          &kp G         &kp M        &kp N         &kp E       &kp I     &kp O      &kp SQT
-&kp LSHFT  &kp Z     &kp X      &kp C        &kp D          &kp V         &kp K        &kp H         &kp COMMA   &kp DOT   &kp SLASH  &kp RSHFT
-&caps_word &kp LALT  &kp LMETA  &lt SYS ESC  &lt MED SPACE  &lt NAV TAB   &lt SYM RET  &lt NUM BSPC  &lt FUN DEL &kp RMETA &kp RALT   &tog GAME
+&kp TAB    &kp Q       &kp W      &kp F        &kp P          &kp B         &kp J        &kp L         &kp U       &kp Y      &kp SEMI    &kp BSPC
+&kp LCTRL  &mt LMETA A &mt LALT R &mt LCTRL S  &mt LSHFT      &kp G         &kp M        &mt RSHFT N   &mt RCTRL E &mt RALT I &mt RMETA O &kp SQT
+&kp LSHFT  &kp Z       &kp X      &kp C        &kp D          &kp V         &kp K        &kp H         &kp COMMA   &kp DOT    &kp SLASH   &kp RSHFT
+&caps_word &kp LALT    &kp LMETA  &lt SYS ESC  &lt NAV SPACE  &lt PTR TAB   &lt SYM RET  &lt NUM BSPC  &lt FUN DEL &kp RMETA  &kp RALT    &tog GAME
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
