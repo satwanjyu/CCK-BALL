@@ -26,90 +26,121 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&lt {
+    flavor = "balanced";
+};
+
+#define BASE 0
+#define SYM  1
+#define NUM  2
+#define FUN  3  
+#define SYS  4
+#define MED  5
+#define NAV  6
+#define PTR  7
+#define GAME 8
+
 / {
-    // 上下滚动编码器行为
-
-    scroll_vertical_encoder: scroll_vertical_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-        tap-ms = <100>;
-    };
-
-    // 左右滚动编码器行为
-
-    scroll_horizontal_encoder: scroll_horizontal_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
-        tap-ms = <100>;
-    };
-
-    behaviors {
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
-        colemak {
+        base {
             bindings = <
-&kp ESCAPE        &kp Q         &kp W         &kp F         &kp P        &kp B  &kp J      &kp L         &kp U          &kp Y     &kp SEMI   &kp BACKSPACE
-&kp TAB           &kp A         &kp R         &kp S         &kp T        &kp G  &kp M      &kp N         &kp E          &kp I     &kp O      &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C         &kp D        &kp V  &kp K      &kp H         &kp COMMA      &kp DOT   &kp SLASH  &kp RIGHT_SHIFT
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_WIN  &lt 1 SPACE  &mo 3  &kp ENTER  &lt 2 DELETE  &kp RIGHT_ALT  &mkp MB1  &mkp MB2   &mo 4
+&kp TAB    &kp Q     &kp W      &kp F        &kp P          &kp B         &kp J        &kp L         &kp U       &kp Y     &kp SEMI   &kp BSPC
+&kp LCTRL  &kp A     &kp R      &kp S        &kp T          &kp G         &kp M        &kp N         &kp E       &kp I     &kp O      &kp SQT
+&kp LSHFT  &kp Z     &kp X      &kp C        &kp D          &kp V         &kp K        &kp H         &kp COMMA   &kp DOT   &kp SLASH  &kp RSHFT
+&caps_word &kp LALT  &kp LMETA  &lt SYS ESC  &lt MED SPACE  &lt NAV TAB   &lt SYM RET  &lt NUM BSPC  &lt FUN DEL &kp RMETA &kp RALT   &tog GAME
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        num_layers {
+        symbol {
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5   &kp N6     &kp N7    &kp N8     &kp N9     &kp N0  &kp DEL
-&kp CAPS   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5   &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT  &none   &kp F11
-&trans     &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp HOME   &kp END   &kp PG_UP  &kp PG_DN  &none   &kp F12
-&trans     &trans  &trans  &trans  &trans  &trans   &mkp LCLK  &mo 3     &trans     &trans     &trans  &trans
+&none      &kp LBRC  &kp AMPS   &kp ASTRK    &kp LPAR       &kp RBRC      &none        &none         &none       &none     &none      &none
+&none      &kp COLON &kp DLLR   &kp PRCNT    &kp CARET      &kp PLUS      &none        &none         &none       &none     &none      &none
+&none      &kp TLIDE &kp EXCL   &kp AT       &kp POUND      &kp PIPE      &none        &none         &none       &none     &none      &none
+&none      &none     &none      &kp LPAR     &kp RPAR       &kp UNDER     &none        &none         &none       &none     &none      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        symbo_layers {
+        number {
             bindings = <
-&none  &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp LS(CARET)  &kp LS(AMPS)  &kp LS(STAR)    &kp LS(LPAR)  &kp LS(RPAR)  &kp LEFT_WIN
-&none  &none     &none   &none     &none       &kp GRAVE    &kp MINUS      &kp EQUAL     &kp LBKT        &kp RBKT      &kp BSLH      &none
-&none  &none     &none   &none     &none       &kp TILDE    &kp UNDER      &kp PLUS      &kp LEFT_BRACE  &kp RBRC      &kp PIPE      &none
-&none  &none     &none   &none     &mo 3       &none        &none          &none         &none           &none         &none         &none
+&none      &kp LBKT  &kp N7     &kp N8       &kp N9         &kp RBKT      &none        &none         &none       &none     &none      &none
+&none      &kp SEMI  &kp N4     &kp N5       &kp N6         &kp EQUAL     &none        &none         &none       &none     &none      &none
+&none      &kp GRAVE &kp N1     &kp N2       &kp N3         &kp BSLH      &none        &none         &none       &none     &none      &none
+&none      &none     &none      &kp DOT      &kp N0         &kp MINUS     &none        &none         &none       &none     &none      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        settings-layers {
+        function {
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL  &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans        &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans
+&none      &none     &kp F7     &kp F8       &kp F9         &kp F12       &none        &none         &none       &none     &none      &none
+&none      &none     &kp F4     &kp F5       &kp F6         &kp F11       &none        &none         &none       &none     &none      &none
+&none      &none     &kp F1     &kp F2       &kp F3         &kp F10       &none        &none         &none       &none     &none      &none
+&none      &none     &none      &none        &none          &none         &none        &none         &none       &none     &none      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        snipe-layers {
+        system {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &C_PWR
+&none      &none     &none      &none        &none          &none         &none        &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+&none      &none     &none      &none        &none          &none         &none        &bt BT_CLR   &none         &none        &none        &none
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &bootloader
             >;
 
-            sensor-bindings =
-                <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,
-                <&scroll_horizontal_encoder>;
-  // 编码器2：左右滚动
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        media {
+            bindings = <
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none       
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+&none      &none     &none      &none        &none          &none         &kp C_PREV   &kp C_PLAY   &kp C_NEXT    &none        &none        &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        navigation {
+            bindings = <
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+&none      &none     &none      &none        &none          &none         &none        &kp LEFT     &kp DOWN      &kp UP       &kp RIGHT    &none       
+&none      &none     &none      &none        &none          &none         &none        &kp HOME     &kp PG_DN     &kp PG_UP    &kp END      &none
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        pointer {
+            bindings = <
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none       
+&none      &none     &none      &none        &none          &none         &none        &none        &none         &none        &none        &none
+&none      &none     &none      &none        &none          &mkp LCLK     &mkp RCLK    &none        &none         &none        &none        &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        gaming {
+            bindings = <
+&kp TAB    &kp Q     &kp W      &kp E        &kp R          &kp T         &kp Y        &kp U        &kp I         &kp O        &kp P        &none
+&kp CAPS   &kp A     &kp S      &kp D        &kp F          &kp G         &kp H        &kp J        &kp K         &kp L        &kp SEMI     &kp SQT       
+&kp LSHFT  &kp Z     &kp X      &kp C        &kp V          &kp B         &kp N        &kp M        &kp COMMA     &kp DOT      &kp SLASH    &kp RSHFT
+&kp LCTRL  &none     &none      &kp ESC      &kp SPC        &kp TAB       &none        &none        &none         &none        &none        &tog GAME
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
