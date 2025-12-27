@@ -77,6 +77,17 @@
     };
 };
 
+/ {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+
+        scroller {
+            layers = <1>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        }
+    };
+};
 
 //RGB bus
 &pinctrl {
@@ -118,15 +129,6 @@
                          LED_COLOR_ID_BLUE>;
     };
 };
-
-/ {
-    trackball_listener {
-        scroller {
-            layers = <1>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
-        }
-    };
-}
 
 // enable right encoder
 &right_encoder {
