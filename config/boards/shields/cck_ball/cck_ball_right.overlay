@@ -119,12 +119,14 @@
     };
 };
 
-&trackball_listener {
-    scroller {
-        layers = <1>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
-    }
-};
+/ {
+    trackball_listener {
+        scroller {
+            layers = <1>;
+            input-processors = <&zip_xy_to_scroll_mapper>;
+        }
+    };
+}
 
 // enable right encoder
 &right_encoder {
