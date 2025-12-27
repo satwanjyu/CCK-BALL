@@ -28,7 +28,7 @@
 
 &mt {
     flavor = "balanced";
-}
+};
 &lt {
     flavor = "balanced";
 };
