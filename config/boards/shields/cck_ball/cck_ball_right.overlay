@@ -5,6 +5,7 @@
  */
  
 #include "cck_ball.dtsi"
+#include <input/processors.dtsi>
 
 #define INPUT_EV_KEY 0x01               /**< Key event */
 #define INPUT_EV_REL 0x02               /**< Relative coordinate event */
@@ -118,18 +119,11 @@
     };
 };
 
-/ {
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-
-        scroller {
-            layers = <1>;
-            input-processors = <
-                &zip_xy_to_scroll_mapper
-            >;
-        };
-    };
+&trackball_listener {
+    scroller {
+        layers = <1>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    }
 };
 
 // enable right encoder
