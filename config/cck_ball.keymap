@@ -44,12 +44,12 @@
 #define PTR  8
 
 / {
-    behaviors {
-        scroll_encoder: scroll_encoder {
+    zoom_encoder: zoom_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-        };
+            bindings = <&kp LC(KP_PLUS)>, <&kp LC(KP_MINUS)>;
+
+            tap-ms = <30>;
     };
 
     keymap {
@@ -63,7 +63,7 @@
 &caps_word &kp LALT    &kp LMETA  &lt SYS ESC &lt NAV SPACE &lt PTR TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL &kp RMETA  &kp RALT    &tog GAME
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&zoom_encoder>;
         };
 
         symbol {
