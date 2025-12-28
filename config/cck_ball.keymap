@@ -63,7 +63,7 @@
 &caps_word &kp LALT    &kp LMETA  &lt SYS ESC &lt NAV SPACE &lt PTR TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL &kp RMETA  &kp RALT    &tog GAME
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&scroll_encoder>;
         };
 
         symbol {
