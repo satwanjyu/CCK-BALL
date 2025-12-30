@@ -6,6 +6,7 @@
  
 #include "cck_ball.dtsi"
 #include <input/processors.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 #define INPUT_EV_KEY 0x01               /**< Key event */
 #define INPUT_EV_REL 0x02               /**< Relative coordinate event */
@@ -86,7 +87,8 @@
 
         scroller {
             layers = <4>;
-            input-processors = <&zip_xy_to_scroll_mapper>;
+            input-processors = <&zip_xy_to_scroll_mapper>,
+                               <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
         };
     };
 };
