@@ -26,7 +26,7 @@
 &soft_off { hold-time-ms = <2000>; };
 
 &mt {
-    flavor = "hold-preferred";
+    flavor = "balanced";
 };
 &lt {
     flavor = "balanced";
