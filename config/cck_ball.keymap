@@ -26,7 +26,7 @@
 &soft_off { hold-time-ms = <2000>; };
 
 &mt {
-	tapping-term-ms = <125>;
+	tapping-term-ms = <150>;
     flavor = "balanced";
 };
 &lt {
@@ -52,15 +52,47 @@
             tap-ms = <30>;
     };
 
+    macros {
+        screenshot: screenshot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LMETA &kp LSHFT>
+                , <&macro_tap &kp N4>
+                , <&macro_release &kp LMETA &kp LSHFT>
+                ;
+        };
+
+		window_next: window_next {
+			compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LMETA>
+                , <&macro_tap &kp GRAVE>
+                , <&macro_release &kp LMETA>
+                ;
+		};
+
+		window_prev: window_next {
+			compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LMETA &kp LSHFT>
+                , <&macro_tap &kp GRAVE>
+                , <&macro_release &kp LMETA &kp LSHFT>
+                ;
+		};
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         base {
             bindings = <
-&kp TAB    &kp Q       &kp W      &kp F       &kp P         &kp B         &kp J       &kp L        &kp U       &kp Y      &kp SQT     &kp BSPC
-&kp LCTRL  &mt LMETA A &mt LALT R &mt LCTRL S &mt LSHFT T   &kp G         &kp M       &mt RSHFT N  &mt RCTRL E &mt RALT I &mt RMETA O &kp SQT
-&kp LSHFT  &kp Z       &kp X      &kp C       &kp D         &kp V         &kp K       &kp H        &kp COMMA   &kp DOT    &kp SLASH   &kp RSHFT
-&caps_word &kp LALT    &kp LMETA  &lt SYS ESC &lt NAV SPACE &lt MED TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL &kp RMETA  &kp RALT    &tog GAME
+&window_next &kp Q       &kp W      &kp F       &kp P         &kp B         &kp J       &kp L        &kp U       &kp Y      &kp SQT     &kp BSPC
+&window_prev &mt LMETA A &mt LALT R &mt LCTRL S &mt LSHFT T   &kp G         &kp M       &mt RSHFT N  &mt RCTRL E &mt RALT I &mt RMETA O &kp SQT
+&screenshot  &kp Z       &kp X      &kp C       &kp D         &kp V         &kp K       &kp H        &kp COMMA   &kp DOT    &kp SLASH   &kp RSHFT
+&caps_word   &kp LALT    &kp LMETA  &lt SYS ESC &lt NAV SPACE &lt MED TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL &kp RMETA  &kp RALT    &tog GAME
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&zoom_encoder>;
