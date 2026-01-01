@@ -84,7 +84,7 @@
                 ;
 		};
 
-		window_prev: window_next {
+		window_prev: window_prev {
 			compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
