@@ -47,7 +47,7 @@
 #define BASE 0
 #define SYM  1
 #define NUM  2
-#define FUN  3  
+#define FUN  3
 #define SYS  4
 #define NAV  5
 #define MED  6
@@ -115,7 +115,7 @@
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_HAND_KEYS LEFT_THUMB_KEYS>;
             hold-trigger-on-release;
-        };    
+        };
     };
 
     keymap {
@@ -171,7 +171,7 @@
         navigation {
             bindings = <
 &none      &none       &none      &none       &none         &none         &none        &none        &none      &none      &none       &none
-&none      &kp LMETA   &kp LALT   &kp LCTRL   &kp LSHFT     &none         &none        &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT   &none       
+&none      &kp LMETA   &kp LALT   &kp LCTRL   &kp LSHFT     &none         &none        &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT   &none
 &none      &none       &none      &none       &none         &none         &none        &kp HOME     &kp PG_DN  &kp PG_UP  &kp END     &none
 &none      &none       &none      &none       &none         &none         &none        &none        &none      &none      &none       &none
             >;
@@ -180,7 +180,7 @@
         media {
             bindings = <
 &none      &none       &none      &none       &none         &none         &none        &none        &none      &none      &none       &none
-&none      &kp LMETA   &kp LALT   &kp LCTRL   &kp LSHFT     &none         &none        &none        &none      &none      &none       &none       
+&none      &kp LMETA   &kp LALT   &kp LCTRL   &kp LSHFT     &none         &none        &none        &none      &none      &none       &none
 &none      &none       &none      &none       &none         &none         &none        &none        &none      &none      &none       &none
 &none      &none       &none      &none       &none         &none         &kp C_PREV   &kp C_PLAY   &kp C_NEXT &none      &none       &none
             >;
@@ -189,7 +189,7 @@
         gaming {
             bindings = <
 &kp TAB    &kp Q     &kp W      &kp E        &kp R          &kp T         &kp Y        &kp U        &kp I         &kp O        &kp P        &kp BSPC
-&kp CAPS   &kp A     &kp S      &kp D        &kp F          &kp G         &kp H        &kp J        &kp K         &kp L        &kp SEMI     &kp SQT       
+&kp CAPS   &kp A     &kp S      &kp D        &kp F          &kp G         &kp H        &kp J        &kp K         &kp L        &kp SEMI     &kp SQT
 &kp LSHFT  &kp Z     &kp X      &kp C        &kp V          &kp B         &kp N        &kp M        &kp COMMA     &kp DOT      &kp SLASH    &kp RSHFT
 &kp LCTRL  &kp LALT  &kp LMETA  &kp ESC      &kp SPC        &kp TAB       &kp RET      &kp BSPC     &kp DEL       &kp RMETA    &kp RALT     &tog GAME
             >;
@@ -198,7 +198,7 @@
         pointer {
             bindings = <
 &none      &none       &none      &none        &none        &none         &none        &none        &none      &none      &none       &none
-&none      &none       &none      &none        &none        &none         &none        &none        &none      &none      &none       &none       
+&none      &kp LMETA   &kp LALT   &kp LCTRL    &kp LSHFT    &none         &none        &none        &none      &none      &none       &none
 &none      &none       &none      &none        &none        &none         &none        &none        &none      &none      &none       &none
 &none      &none       &none      &mo SYS      &mkp LCLK    &mkp RCLK     &none        &none        &none      &none      &none       &none
             >;
