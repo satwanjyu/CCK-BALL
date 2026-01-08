@@ -84,16 +84,6 @@
                 , <&macro_release &kp LMETA>
                 ;
 		};
-
-		window_prev: window_prev {
-			compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LMETA &kp LSHFT>
-                , <&macro_tap &kp GRAVE>
-                , <&macro_release &kp LMETA &kp LSHFT>
-                ;
-		};
     };
 
     behaviors {
@@ -127,9 +117,9 @@
         base {
             bindings = <
 &window_next &kp Q        &kp W       &kp F        &kp P         &kp B         &kp J       &kp L        &kp U        &kp Y       &kp SQT      &kp BSPC
-&window_prev &hml LMETA A &hml LALT R &hml LCTRL S &hml LSHFT T  &kp G         &kp M       &hmr RSHFT N &hmr RCTRL E &hmr RALT I &hmr RMETA O &kp SQT
+&capsword    &hml LMETA A &hml LALT R &hml LCTRL S &hml LSHFT T  &kp G         &kp M       &hmr RSHFT N &hmr RCTRL E &hmr RALT I &hmr RMETA O &kp SQT
 &screenshot  &kp Z        &kp X       &kp C        &kp D         &kp V         &kp K       &kp H        &kp COMMA    &kp DOT     &kp SLASH    &kp RSHFT
-&caps_word   &kp LALT     &kp LMETA   &lt SYS ESC  &lt NAV SPACE &lt MED TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL  &kp RMETA   &kp RALT     &tog GAME
+&kp LCTRL    &kp LALT     &kp LMETA   &lt SYS ESC  &lt NAV SPACE &lt MED TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL  &kp RMETA   &kp RALT     &tog GAME
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&zoom_encoder>;
