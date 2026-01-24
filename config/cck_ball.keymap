@@ -59,7 +59,7 @@
     zoom_encoder: zoom_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp LC(KP_PLUS)>, <&kp LC(KP_MINUS)>;
+            bindings = <&kp LG(KP_PLUS)>, <&kp LG(KP_MINUS)>;
 
             tap-ms = <30>;
     };
